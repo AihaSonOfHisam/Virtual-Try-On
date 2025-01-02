@@ -75,6 +75,13 @@ nav ul li a:hover {
     color: #87ceeb;
 }
 
+/* Active Navigation Link */
+nav ul li a.active {
+    color: #87ceeb;
+    border-bottom: 2px solid #87ceeb;
+    padding-bottom: 5px;
+}
+
 /* Main content styles */
 main {
     margin-top: 20px;
