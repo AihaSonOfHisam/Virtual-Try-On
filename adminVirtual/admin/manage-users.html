@@ -1,0 +1,103 @@
+<?php
+// Include the database connection
+include 'connect.php';
+
+// Fetch categories from the 'category' table
+$sql = "SELECT * FROM category";
+$result = $conn->query($sql);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="../resources/css/manage-users.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h1>Admin</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="manage-users.html" class="active">Account</a></li>
+                <li><a href="manage-category.html">Category</a></li>
+                <li><a href="manage-item.html">Item</a></li>
+                <li><a href="manage-review.html">Review</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Manage Users</h1>
+        </header>
+
+        <main>
+            <!-- Add User Button -->
+            <div class="add-user-btn">
+                <a href="add-user.html" class="add-user-link">Add New User</a>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search users by name, email, or role">
+                <button>Search</button>
+            </div>
+
+            <!-- User Table -->
+            <table class="user-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Loop through the categories and display them in the table
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . $row['categoryID'] . "</td>";
+                            echo "<td>" . $row['categoryName'] . "</td>";
+                            echo "<td>" . $row['categoryImage'] . "</td>";
+                            echo "<td>****</td>"; // Placeholder for password
+                            echo "<td>Admin</td>"; // Placeholder for status
+                            echo "<td>
+                                    <a href='edit-user.html'>
+                                        <button class='edit-btn'>Edit</button>
+                                    </a>
+                                    <button class='ban-btn'>Ban</button>
+                                  </td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='6'>No categories found</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Virtual Try-on Admin</p>
+    </footer>
+
+    <?php
+    // Close the connection
+    $conn->close();
+    ?>
+</body>
+</html>
