@@ -1,0 +1,205 @@
+/* General reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+.search-bar input {
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.account img {
+    width: 20px;
+    height: 20px;
+}
+
+.account span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Navigation bar styles */
+nav {
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+nav ul li {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav ul li a:hover {
+    color: #87ceeb;
+}
+
+/* Main content styles */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 20px;
+    background-color: #fff;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Model display (main content container) */
+.model-display {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    gap: 30px;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Live camera feed iframe */
+iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Clothing selector form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #333;
+    width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #87ceeb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: capitalize;
+    width: 220px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #5db1d2;
+}
+
+/* Clothing image box (for fallback display when AI is not active) */
+.model {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    height: 250px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.model img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Hidden iframe for form submission response (no need to style it) */
+iframe[name="hidden-frame"] {
+    display: none;
+}
+
+/* Image upload section */
+#user-image {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 80%;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .model-display {
+        width: 100%;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}
